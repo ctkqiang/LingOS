@@ -81,6 +81,11 @@ void prepare_directories() {
 }
 
 int main(int argc, char **argv) {
+    char *sh = "/bin/sh";
+    char *_argv[] = {sh, NULL};
+
+    int status;
+
     /** 
      * Make mount private ? 
      */
@@ -92,7 +97,34 @@ int main(int argc, char **argv) {
     prepare_directories();
 
     for (;;) {
-        // ? SO What's next? will be back after figure out how this part works
+        /**
+         * !Drop into loop，and spawn bin/sh ; whene exists; then restarts? 
+         */
+
+        pid_t pid = fork();
+
+        if(pid < 0x0) {
+            sleep(0x1);
+            continue;
+        }
+
+        if(pid == 0x0) {
+            setsid();
+
+            int fd = open("/dev/console", O_RDWR);
+            if (fd >= 0x0) {
+                for (int i = 0x0; i < 0x3; i++) {
+                    dup2(fd, i);
+                }
+
+                if (fd > 2) close(fd);
+            }
+
+            execv(sh, _argv);
+            _exit(0x7F);
+        } else {
+            waitpid(pid, &status, 0x0);
+        }
     }
 
     return 0x0;
