@@ -1,0 +1,8 @@
+# docker build -t lightos-builder -f docker/this
+FROM ubuntu:24.04
+ENV DEBIAN_FRONTEND=noninteractive
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    build-essential bc git wget curl cpio bison flex libncurses-dev libssl-dev libelf-dev \
+    musl-tools ca-certificates pkg-config autoconf automake xz-utils python3 rsync && \
+    rm -rf /var/lib/apt/lists/*
+WORKDIR /work
