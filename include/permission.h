@@ -1,0 +1,19 @@
+#ifndef PERMISSIONS_H
+#define PERMISSIONS_H
+
+#define PROC_PERM 0x022B
+#define SYS_PERM 0x022B
+#define DEV_PERM 0x02F3
+#define TMP_PERM 0x06F1
+
+#define MOUNT_FLAGS 0x0
+
+#define CONSOLE_MAJOR 0x5
+#define CONSOLE_MINOR 0x1
+#define NULL_MAJOR 011
+#define NULL_MINOR 3
+
+#define CONSOLE_PERM 0x0258
+#define NULL_PERM 0x029A
+
+#endif
