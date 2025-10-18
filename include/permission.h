@@ -1,12 +1,14 @@
 #ifndef PERMISSIONS_H
 #define PERMISSIONS_H
 
+#define MOUNT_FLAGS 0x0
+
 #define PROC_PERM 0x022B
 #define SYS_PERM 0x022B
 #define DEV_PERM 0x02F3
 #define TMP_PERM 0x06F1
 
-#define MOUNT_FLAGS 0x0
+#define MOUNT_FLAGS (MS_REC | MS_PRIVATE)
 
 #define CONSOLE_MAJOR 0x5
 #define CONSOLE_MINOR 0x1

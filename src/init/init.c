@@ -89,7 +89,7 @@ int main(int argc, char **argv) {
     /** 
      * Make mount private ? 
      */
-    if (mount(NULL, "/", NULL, MS_REC | MS_PRIVATE, NULL) < 0) {
+    if (mount(NULL, "/", NULL, MS_PRIVATE | NULL, NULL) < 0) {
         // Non Fatal stuff here 
     }
 
