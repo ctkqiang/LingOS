@@ -65,6 +65,7 @@
     "mount.h": "c",
     "reboot.h": "c",
     "stdio.h": "c",
-    "fcntl.h": "c"
+    "fcntl.h": "c",
+    "permission.h": "c"
   }
 }
